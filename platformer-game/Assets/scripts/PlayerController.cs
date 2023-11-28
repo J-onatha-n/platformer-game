@@ -9,14 +9,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb; //create reference for rigidbody bc jump requires physics
     public float jumpForce; //the force that will be added to the vertical component of player's velocity
     public float speed;
-<<<<<<< Updated upstream
-=======
+
     //animation values
     Animator anim;  
     public bool moving = false;
     Vector2 startpos; 
- 
->>>>>>> Stashed changes
+
 
 
     //Ground Check Variables
@@ -32,11 +30,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-<<<<<<< Updated upstream
-=======
+
         anim = GetComponent<Animator>();
         startpos = transform.position;
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -53,16 +49,14 @@ public class PlayerController : MonoBehaviour
         {
             newPosition.x -= speed;
             newScale.x = -currentScale;
-<<<<<<< Updated upstream
-=======
             moving = true;
->>>>>>> Stashed changes
         }
 
         if (Input.GetKey("d") || Input.GetKey(KeyCode.RightArrow))
         {
             newPosition.x += speed;
             newScale.x = currentScale;
+            moving = true;
         }
 
         if ((Input.GetKeyDown("w") || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded == true)
@@ -74,7 +68,16 @@ public class PlayerController : MonoBehaviour
         transform.position = newPosition;
         transform.localScale = newScale;
 
-        
+        if (Input.GetKeyUp("a") || Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            moving = false;
+        }
+
+        anim.SetBool("isMoving", moving);
+        transform.position = newPosition;
+        transform.localScale = newScale;
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
