@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class PlayerController : MonoBehaviour
     //animation values
     Animator anim;  
     public bool moving = false;
-    Vector2 startpos; 
+    Vector2 startpos;
+
+    //coin variables
+    public static int numberOfCoins;
+    public TextMeshProUGUI coinsText;
 
 
 
@@ -38,9 +43,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        coinsText.text = numberOfCoins.ToString(); 
+
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, .5f, groundLayer); //checks if the groundCheck and groundLayer are overlapping within the radius of a circle.
                                                                                       //This function also returns a false or true value which is why you could equal it to a bool
-                                                                                      //Formated in (first thing being checked, radius of circle, second thing being checkedww
+                                                                                      //Formated in (first thing being checked, radius of circle, second thing being checked
         Vector3 newPosition = transform.position;
         Vector3 newScale = transform.localScale;
         float currentScale = Mathf.Abs(transform.localScale.x);
