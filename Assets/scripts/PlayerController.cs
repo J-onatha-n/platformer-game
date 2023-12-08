@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     //animation values
     Animator anim;  
     public bool moving = false;
+    public bool jumping;
     Vector2 startpos;
 
     //coin variables
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer; //layer information 
     public Transform groundCheck; //Transform gives information on everything in the transform tab in unity
     public bool isGrounded; //bool that determines whether the player is on the ground
+   
  
 
     SpriteRenderer sprite;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         startpos = transform.position;
+        GameManager.coinOne = false;
     }
 
     void FixedUpdate()
@@ -75,7 +78,15 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-
+        if (isGrounded == true)
+        {
+            jumping = false;
+        }
+        if (isGrounded == false)
+        {
+            moving = false;
+            jumping = true; 
+        }
 
         transform.position = newPosition;
         transform.localScale = newScale;
@@ -86,6 +97,7 @@ public class PlayerController : MonoBehaviour
         }
 
         anim.SetBool("isMoving", moving);
+        anim.SetBool("isJumping", jumping);
         transform.position = newPosition;
         transform.localScale = newScale;
 
@@ -100,7 +112,8 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Finish"))
         {
-            SceneManager.LoadScene(2);
+            numberOfCoins = 0; 
+            SceneManager.LoadScene(4);
         }
         if (collision.gameObject.tag.Equals("sCoin1"))
         {

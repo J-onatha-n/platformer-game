@@ -20,7 +20,7 @@ public class CoinManager : MonoBehaviour
             ColoredCoin.SetActive(true);
             DarkCoin.SetActive(false);
         }
-        if (coinOne == false)
+        if (GameManager.coinOne == false)
         {
             ColoredCoin.SetActive(false);
             DarkCoin.SetActive(true);
