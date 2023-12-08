@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Spike
+  - sCoin1
   layers:
   - Default
   - TransparentFX

@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
 
     //coin variables
     public static int numberOfCoins;
-    public TextMeshProUGUI coinsText;
-
+    public TextMeshProUGUI CoinsText;
+    public GameObject secretCoinOne;
 
 
     //Ground Check Variables
@@ -40,14 +40,19 @@ public class PlayerController : MonoBehaviour
         startpos = transform.position;
     }
 
+    void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, .1f, groundLayer); //checks if the groundCheck and groundLayer are overlapping within the radius of a circle.
+                                                                                      //This function also returns a false or true value which is why you could equal it to a bool
+                                                                                       //Formated in (first thing being checked, radius of circle, second thing being checked
+        
+    }
     // Update is called once per frame
     void Update()
     {
-        coinsText.text = numberOfCoins.ToString(); 
+        CoinsText.text = numberOfCoins.ToString(); 
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, .5f, groundLayer); //checks if the groundCheck and groundLayer are overlapping within the radius of a circle.
-                                                                                      //This function also returns a false or true value which is why you could equal it to a bool
-                                                                                      //Formated in (first thing being checked, radius of circle, second thing being checked
+       
         Vector3 newPosition = transform.position;
         Vector3 newScale = transform.localScale;
         float currentScale = Mathf.Abs(transform.localScale.x);
@@ -96,6 +101,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Finish"))
         {
             SceneManager.LoadScene(2);
+        }
+        if (collision.gameObject.tag.Equals("sCoin1"))
+        {
+            GameManager.coinOne = true; 
+            Debug.Log("found secret coin");
         }
     }
 

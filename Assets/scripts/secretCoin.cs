@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class secretCoin : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,17 +13,18 @@ public class Coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
-        { 
-            PlayerController.numberOfCoins++;
+        {
+        
             Destroy(gameObject);
             Debug.Log("coin collected");
-           
+            GameManager.coinOne = true;
         }
+
     }
 
 }
