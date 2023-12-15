@@ -3152,7 +3152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15877438, y: -0.007938623}
+  m_Offset: {x: -0.17559099, y: -0.007938623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3163,7 +3163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8735294, y: 2.9211621}
+  m_Size: {x: 3.1313868, y: 2.9211621}
   m_EdgeRadius: 0
 --- !u!1 &565710980
 GameObject:
@@ -3503,7 +3503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -664, y: -28.6}
+  m_AnchoredPosition: {x: -954, y: -28.599976}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881001956
@@ -4195,7 +4195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9463272, y: 0.9310272}
+  m_Size: {x: 3.103283, y: 0.9310272}
   m_EdgeRadius: 0
 --- !u!1 &1295939335
 GameObject:
@@ -4242,7 +4242,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15877438, y: -0.007938623}
+  m_Offset: {x: -0.16998577, y: -0.007938623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4253,7 +4253,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8735294, y: 2.9211621}
+  m_Size: {x: 3.0080624, y: 2.9211621}
   m_EdgeRadius: 0
 --- !u!1 &1318215300
 GameObject:
@@ -4436,6 +4436,7 @@ MonoBehaviour:
   jumpForce: 15
   speed: 0.01
   moving: 0
+  jumping: 0
   CoinsText: {fileID: 881001956}
   secretCoinOne: {fileID: 433741821}
   groundLayer:

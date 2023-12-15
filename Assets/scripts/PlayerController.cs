@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Finish"))
         {
             numberOfCoins = 0; 
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(3);
         }
         if (collision.gameObject.tag.Equals("sCoin1"))
         {
